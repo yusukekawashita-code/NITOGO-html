@@ -123,7 +123,7 @@ function animateTextGroup(sectionSelector, titleSelector, textSelector, options 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
-        start: options.start || "top 80%",
+        start: options.start || "top 70%",
         once: true,
       },
     });
@@ -135,7 +135,7 @@ function animateTextGroup(sectionSelector, titleSelector, textSelector, options 
 
       tl.from(splitTitle.chars, {
         opacity: 0,
-        y: options.titleY || 40,
+        y: options.titleY || 60,
         rotateX: options.titleRotateX ?? -90,
         stagger: options.titleStagger || 0.025,
         duration: options.titleDuration || 1.2,
@@ -152,13 +152,13 @@ function animateTextGroup(sectionSelector, titleSelector, textSelector, options 
         splitText.chars,
         {
           opacity: 0,
-          y: options.textY || 30,
+          y: options.textY || 60,
           rotateX: options.textRotateX || 0,
           stagger: options.textStagger || 0.015,
           duration: options.textDuration || 1,
           ease: options.ease || "power3.out",
         },
-        options.textPosition ?? "-=0.4"
+        options.textPosition ?? "-=0.4",
       );
     }
   });
@@ -166,8 +166,8 @@ function animateTextGroup(sectionSelector, titleSelector, textSelector, options 
 
 function animateSectionTitle() {
   animateTextChars(".js-section-title", {
-    start: "top 80%",
-    y: 30,
+    start: "top 70%",
+    y: 60,
     rotateX: -90,
     stagger: 0.05,
     duration: 1,
@@ -176,7 +176,7 @@ function animateSectionTitle() {
   gsap.to(".section-title__line", {
     scrollTrigger: {
       trigger: ".section-title",
-      start: "top 80%",
+      start: "top 70%",
       once: true,
     },
     scaleX: 1,
@@ -190,12 +190,12 @@ function animateSectionTitle() {
   Concept Animation
 ========================= */
 animateTextGroup(".concept", ".js-concept-title", ".js-concept-text", {
-  start: "top 80%",
-  titleY: 40,
+  start: "top 70%",
+  titleY: 60,
   titleRotateX: -90,
   titleStagger: 0.025,
   titleDuration: 1.2,
-  textY: 30,
+  textY: 60,
   textStagger: 0.015,
   textDuration: 1,
   textPosition: 0.75,
@@ -215,12 +215,12 @@ animateSectionTitle();
   gsap.from(".pickup__item", {
     scrollTrigger: {
       trigger: ".pickup",
-      start: "top 70%",
+      start: "top 50%",
       once: true,
     },
     opacity: 0,
     y: 45,
-    filter: "blur(10px)",
+    filter: "blur(16px)",
     stagger: 0.12,
     duration: 1.3,
     ease: "power3.out",

@@ -636,8 +636,10 @@ li {
   font-size: var(--fz20);
   font-family: var(--font-ja);
   font-weight: 400;
+  font-feature-settings: "palt";
   color: var(--textColor);
   line-height: 1.9;
+  letter-spacing: 0.05em;
   text-align: center;
   margin-top: 40px;
 }
