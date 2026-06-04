@@ -57,3 +57,31 @@
     }
   });
 })();
+
+/* =========================
+  Main Visual Slider
+========================= */
+const mainVisualSwiper = new Swiper(".main-visual__slider", {
+  loop: true,
+  effect: "fade",
+  speed: 1800,
+
+  autoplay: {
+    delay: 5200,
+    disableOnInteraction: false,
+  },
+
+  fadeEffect: {
+    crossFade: true,
+  },
+
+  pagination: {
+    el: ".main-visual__pagination",
+    clickable: true,
+  },
+
+  navigation: {
+    nextEl: ".main-visual__button--next",
+    prevEl: ".main-visual__button--prev",
+  },
+});

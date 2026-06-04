@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
     <link rel="stylesheet" href="css/style.css?v=1.0.12" />
   </head>
@@ -89,10 +90,38 @@
 
     <section class="main-visual">
       <div class="main-visual__pc">
-        <img src="images/top/main-visual.jpg" alt="NITOGOの商品が並ぶナチュラルなインテリア空間" class="main-visual__image" />
+        <div class="swiper main-visual__slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide main-visual__slide">
+              <img src="images/top/main-visual01.jpg" alt="NITOGOの商品が並ぶナチュラルなインテリア空間" width="1920" height="710" class="main-visual__image" fetchpriority="high" />
+            </div>
+
+            <div class="swiper-slide main-visual__slide">
+              <img src="images/top/main-visual02.jpg" alt="明るい光が差し込む上質なリビング空間" width="1440" height="1080" class="main-visual__image" />
+            </div>
+
+            <div class="swiper-slide main-visual__slide">
+              <img src="images/top/main-visual03.jpg" alt="飾り棚とソファのある落ち着いたリビング空間" width="1440" height="1080" class="main-visual__image" />
+            </div>
+
+            <div class="swiper-slide main-visual__slide">
+              <img src="images/top/main-visual04.jpg" alt="自然素材の家具とファブリックが調和する寝室" width="1536" height="768" class="main-visual__image" />
+            </div>
+
+            <div class="swiper-slide main-visual__slide">
+              <img src="images/top/main-visual05.jpg" alt="ブラウンのソファとやわらかな照明があるリビング空間" width="1440" height="1080" class="main-visual__image" />
+            </div>
+          </div>
+          <div class="main-visual__controls">
+            <div class="swiper-button-prev main-visual__button main-visual__button--prev"></div>
+            <div class="swiper-pagination main-visual__pagination"></div>
+            <div class="swiper-button-next main-visual__button main-visual__button--next"></div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <script src="js/swiper-bundle.min.js"></script>
     <script src="js/gsap.min.js"></script>
     <script src="js/SplitText.min.js"></script>
     <script src="js/ScrollTrigger.min.js"></script>
