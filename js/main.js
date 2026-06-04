@@ -12,28 +12,22 @@
   const openMenu = () => {
     hamburger.classList.add("is-active");
     mobileMenu.classList.add("is-active");
-
     hamburger.setAttribute("aria-expanded", "true");
     mobileMenu.setAttribute("aria-hidden", "false");
-
     document.body.style.overflow = "hidden";
   };
 
   const closeMenu = () => {
     hamburger.classList.remove("is-active");
     mobileMenu.classList.remove("is-active");
-
     hamburger.setAttribute("aria-expanded", "false");
     mobileMenu.setAttribute("aria-hidden", "true");
-
     document.body.style.overflow = "";
   };
 
-  const toggleMenu = () => {
+  hamburger.addEventListener("click", () => {
     hamburger.classList.contains("is-active") ? closeMenu() : openMenu();
-  };
-
-  hamburger.addEventListener("click", toggleMenu);
+  });
 
   menuLinks.forEach((link) => {
     link.addEventListener("click", closeMenu);
@@ -52,29 +46,23 @@
   Main Visual Slider
 ========================= */
 (() => {
-  const slider = document.querySelector(".main-visual__slider");
-
-  if (!slider || typeof Swiper === "undefined") return;
+  if (!document.querySelector(".main-visual__slider") || typeof Swiper === "undefined") return;
 
   new Swiper(".main-visual__slider", {
     loop: true,
     effect: "fade",
     speed: 1800,
-
     autoplay: {
       delay: 5200,
       disableOnInteraction: false,
     },
-
     fadeEffect: {
       crossFade: true,
     },
-
     pagination: {
       el: ".main-visual__pagination",
       clickable: true,
     },
-
     navigation: {
       nextEl: ".main-visual__button--next",
       prevEl: ".main-visual__button--prev",
@@ -86,20 +74,42 @@
   GSAP Setup
 ========================= */
 (() => {
-  if (typeof gsap === "undefined") return;
-
-  if (typeof ScrollTrigger !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger);
-  }
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+  gsap.registerPlugin(ScrollTrigger);
 })();
 
 /* =========================
   Text Animation Function
 ========================= */
+function animateTextChars(target, options = {}) {
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || typeof SplitText === "undefined") return;
+
+  const elements = document.querySelectorAll(target);
+  if (!elements.length) return;
+
+  elements.forEach((element) => {
+    const split = new SplitText(element, {
+      type: "chars",
+    });
+
+    gsap.from(split.chars, {
+      scrollTrigger: {
+        trigger: element,
+        start: options.start || "top 80%",
+        once: true,
+      },
+      opacity: 0,
+      y: options.y || 30,
+      rotateX: options.rotateX || 0,
+      stagger: options.stagger || 0.03,
+      duration: options.duration || 1,
+      ease: options.ease || "power3.out",
+    });
+  });
+}
+
 function animateTextGroup(sectionSelector, titleSelector, textSelector, options = {}) {
-  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || typeof SplitText === "undefined") {
-    return;
-  }
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || typeof SplitText === "undefined") return;
 
   const sections = document.querySelectorAll(sectionSelector);
   if (!sections.length) return;
@@ -148,14 +158,36 @@ function animateTextGroup(sectionSelector, titleSelector, textSelector, options 
           duration: options.textDuration || 1,
           ease: options.ease || "power3.out",
         },
-        options.textPosition || "-=0.4",
+        options.textPosition ?? "-=0.4"
       );
     }
   });
 }
 
+function animateSectionTitle() {
+  animateTextChars(".js-section-title", {
+    start: "top 80%",
+    y: 30,
+    rotateX: -90,
+    stagger: 0.05,
+    duration: 1,
+  });
+
+  gsap.to(".section-title__line", {
+    scrollTrigger: {
+      trigger: ".section-title",
+      start: "top 80%",
+      once: true,
+    },
+    scaleX: 1,
+    duration: 0.8,
+    delay: 0.4,
+    ease: "power3.out",
+  });
+}
+
 /* =========================
-  Concept Text Animation
+  Concept Animation
 ========================= */
 animateTextGroup(".concept", ".js-concept-title", ".js-concept-text", {
   start: "top 80%",
@@ -166,5 +198,31 @@ animateTextGroup(".concept", ".js-concept-title", ".js-concept-text", {
   textY: 30,
   textStagger: 0.015,
   textDuration: 1,
-  textPosition: 0.5,
+  textPosition: 0.75,
 });
+
+/* =========================
+  Common Section Title Animation
+========================= */
+animateSectionTitle();
+
+/* =========================
+  Pick Up Animation
+========================= */
+(() => {
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
+  gsap.from(".pickup__item", {
+    scrollTrigger: {
+      trigger: ".pickup",
+      start: "top 70%",
+      once: true,
+    },
+    opacity: 0,
+    y: 45,
+    filter: "blur(10px)",
+    stagger: 0.12,
+    duration: 1.3,
+    ease: "power3.out",
+  });
+})();

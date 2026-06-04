@@ -80,6 +80,41 @@ li {
     display: block;
   }
 }
+
+/* =========================
+  Section Title
+========================= */
+.section-title {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: var(--fz40);
+  font-family: var(--font-en);
+  font-weight: 400;
+  text-align: center;
+}
+
+.section-title__line {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--black);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.section-title .char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+@media only screen and (max-width: 767px) {
+  .section-title__line {
+    bottom: -6px;
+  }
+}
 /* =========================
   Header
 ========================= */
@@ -621,5 +656,93 @@ li {
   .concept__text {
     font-size: var(--fz18);
     margin-top: 25px;
+  }
+}
+
+/* =========================
+  Pick Up
+========================= */
+.pickup {
+  padding-block: 120px;
+}
+
+.pickup__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.pickup__title {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: var(--fz40);
+  font-family: var(--font-en);
+  font-weight: 400;
+  text-align: center;
+}
+
+.pickup__line {
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--black);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.pickup__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  margin-top: 70px;
+}
+
+.pickup__item {
+  overflow: hidden;
+}
+
+.pickup__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  transition:
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pickup__item:hover .pickup__image {
+  transform: scale(1.06);
+  filter: brightness(0.92);
+}
+.pickup__title .char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+@media only screen and (max-width: 1023px) {
+  .pickup {
+    padding-block: 90px;
+  }
+
+  .pickup__list {
+    gap: 30px;
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .pickup {
+    padding-block: 70px;
+    padding-top: 30px;
+  }
+
+  .pickup__list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 40px;
   }
 }
