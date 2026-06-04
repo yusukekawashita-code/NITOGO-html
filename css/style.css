@@ -639,7 +639,7 @@ li {
   font-feature-settings: "palt";
   color: var(--textColor);
   line-height: 1.9;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   text-align: center;
   margin-top: 40px;
 }
