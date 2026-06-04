@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>NITOGO</title>
+    <meta name="description" content="テキストテキストテキストテキストテキストテキスト" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="stylesheet" href="css/style.css?v=1.0.12" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <h1 class="site-header__logo">
+          <a href="/" class="site-header__logo-link" aria-label="NITOGO トップページへ">
+            <img src="images/top/nitogo_logo.png" alt="NITOGO" width="120" height="77" class="site-header__logo-img" />
+          </a>
+        </h1>
+
+        <nav class="site-header__nav" aria-label="グローバルナビゲーション">
+          <ul class="site-header__nav-list">
+            <li class="site-header__nav-item">
+              <a href="#products">PRODUCTS</a>
+            </li>
+            <li class="site-header__nav-item">
+              <a href="#gallery">GALLERY</a>
+            </li>
+            <li class="site-header__nav-item">
+              <a href="#about">ABOUT US</a>
+            </li>
+            <li class="site-header__nav-item">
+              <a href="#news">NEWS</a>
+            </li>
+            <li class="site-header__nav-item">
+              <a href="#contact">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="site-header__sns">
+          <a href="#" class="site-header__sns-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="images/top/icon-instagram.png" alt="Instagram" width="44" height="44" class="site-header__sns-icon" />
+          </a>
+        </div>
+
+        <button class="hamburger" type="button" aria-label="メニューを開く" aria-controls="mobile-menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav class="mobile-menu__nav" aria-label="スマートフォン用ナビゲーション">
+        <ul class="mobile-menu__list">
+          <li class="mobile-menu__item">
+            <a href="#products">PRODUCTS</a>
+          </li>
+
+          <li class="mobile-menu__item">
+            <a href="#gallery">GALLERY</a>
+          </li>
+
+          <li class="mobile-menu__item">
+            <a href="#about">ABOUT US</a>
+          </li>
+
+          <li class="mobile-menu__item">
+            <a href="#news">NEWS</a>
+          </li>
+
+          <li class="mobile-menu__item">
+            <a href="#contact">CONTACT</a>
+          </li>
+        </ul>
+
+        <div class="mobile-menu__sns">
+          <a href="#" class="mobile-menu__sns-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="images/top/icon-instagram.png" alt="Instagram" width="44" height="44" class="mobile-menu__sns-icon" />
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <section class="main-visual">
+      <div class="main-visual__pc">
+        <img src="images/top/main-visual.jpg" alt="NITOGOの商品が並ぶナチュラルなインテリア空間" class="main-visual__image" />
+      </div>
+    </section>
+
+    <script src="js/gsap.min.js"></script>
+    <script src="js/SplitText.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/main.js?v=1.0.7"></script>
+  </body>
+</html>
