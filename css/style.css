@@ -32,7 +32,7 @@ body {
   font-weight: 400;
   font-family: var(--font-ja);
   line-height: 1.66;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: var(--black);
 }
 
@@ -639,7 +639,6 @@ li {
   font-feature-settings: "palt";
   color: var(--textColor);
   line-height: 1.9;
-  letter-spacing: 0.02em;
   text-align: center;
   margin-top: 40px;
 }
