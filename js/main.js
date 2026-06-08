@@ -84,7 +84,8 @@
 function animateTextChars(target, options = {}) {
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || typeof SplitText === "undefined") return;
 
-  const elements = document.querySelectorAll(target);
+  const elements = typeof target === "string" ? document.querySelectorAll(target) : [target];
+
   if (!elements.length) return;
 
   elements.forEach((element) => {
@@ -165,27 +166,36 @@ function animateTextGroup(sectionSelector, titleSelector, textSelector, options 
 }
 
 function animateSectionTitle() {
-  animateTextChars(".js-section-title", {
-    start: "top 70%",
-    y: 60,
-    rotateX: -90,
-    stagger: 0.05,
-    duration: 1,
-  });
+  const titles = document.querySelectorAll(".js-section-title");
 
-  gsap.to(".section-title__line", {
-    scrollTrigger: {
-      trigger: ".section-title",
+  if (!titles.length) return;
+
+  titles.forEach((title) => {
+    animateTextChars(title, {
       start: "top 70%",
-      once: true,
-    },
-    scaleX: 1,
-    duration: 0.8,
-    delay: 0.4,
-    ease: "power3.out",
+      y: 60,
+      rotateX: -90,
+      stagger: 0.05,
+      duration: 1,
+    });
+
+    const line = title.querySelector(".section-title__line");
+
+    if (!line) return;
+
+    gsap.to(line, {
+      scrollTrigger: {
+        trigger: title,
+        start: "top 70%",
+        once: true,
+      },
+      scaleX: 1,
+      duration: 0.8,
+      delay: 0.4,
+      ease: "power3.out",
+    });
   });
 }
-
 /* =========================
   Concept Animation
 ========================= */
@@ -225,5 +235,48 @@ animateSectionTitle();
     stagger: 0.3,
     duration: 1.8,
     ease: "expo.out",
+  });
+})();
+/* =========================
+  News Animation
+========================= */
+(() => {
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
+  const newsItems = document.querySelectorAll(".news__item");
+
+  if (!newsItems.length) return;
+
+  gsap.from(newsItems, {
+    scrollTrigger: {
+      trigger: ".news",
+      start: "top 85%",
+      once: true,
+    },
+
+    opacity: 0,
+    y: 50,
+    filter: "blur(20px)",
+
+    duration: 2.5,
+    stagger: 0.5,
+
+    ease: "expo.out",
+  });
+
+  gsap.from(".news__button", {
+    scrollTrigger: {
+      trigger: ".news__button",
+      start: "top 90%",
+      once: true,
+    },
+
+    opacity: 0,
+    y: 30,
+
+    duration: 1.4,
+    delay: 0.4,
+
+    ease: "power3.out",
   });
 })();
