@@ -195,10 +195,10 @@ animateTextGroup(".concept", ".js-concept-title", ".js-concept-text", {
   titleRotateX: -90,
   titleStagger: 0.025,
   titleDuration: 1.2,
-  textY: 60,
-  textStagger: 0.015,
-  textDuration: 1,
-  textPosition: 0.75,
+  textY: 40,
+  textStagger: 0.02,
+  textDuration: 1.2,
+  textPosition: 1.4,
 });
 
 /* =========================
@@ -215,14 +215,15 @@ animateSectionTitle();
   gsap.from(".pickup__item", {
     scrollTrigger: {
       trigger: ".pickup",
-      start: "top 50%",
+      start: "top 55%",
       once: true,
     },
     opacity: 0,
-    y: 45,
-    filter: "blur(16px)",
-    stagger: 0.12,
-    duration: 1.3,
-    ease: "power3.out",
+    y: 80,
+    scale: 0.92,
+    filter: "blur(24px)",
+    stagger: 0.3,
+    duration: 1.8,
+    ease: "expo.out",
   });
 })();

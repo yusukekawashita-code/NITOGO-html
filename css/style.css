@@ -16,6 +16,7 @@
   --fz20: clamp(1rem, 0.939rem + 0.26vw, 1.25rem);
   --fz22: clamp(1.125rem, 1.064rem + 0.26vw, 1.375rem);
   --fz25: clamp(1.063rem, 0.941rem + 0.52vw, 1.563rem);
+  --fz27: clamp(1.125rem, 0.988rem + 0.58vw, 1.688rem);
   --fz30: clamp(1.25rem, 1.098rem + 0.65vw, 1.875rem);
   --fz32: clamp(1.313rem, 1.146rem + 0.71vw, 2rem);
   --fz40: clamp(1.375rem, 1.223rem + 0.65vw, 2rem);
@@ -578,7 +579,6 @@ li {
 @media only screen and (max-width: 767px) {
   .main-visual__image {
     height: auto;
-    min-height: 300px;
   }
 
   .main-visual__controls {
@@ -611,7 +611,11 @@ li {
     border-width: 2px;
   }
 }
-
+@media only screen and (max-width: 430px) {
+  .main-visual__image {
+    min-height: 330px;
+  }
+}
 /* =========================
   Concept
 ========================= */
@@ -625,7 +629,7 @@ li {
 }
 
 .concept__title {
-  font-size: var(--fz25);
+  font-size: var(--fz27);
   font-family: var(--font-en);
   font-weight: 300;
   color: var(--textColor);
