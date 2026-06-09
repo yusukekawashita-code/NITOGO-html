@@ -889,7 +889,149 @@ li {
 
   .news__button {
     width: 100%;
-    max-width: 250px;
-    height: 36px;
+    max-width: 200px;
+    height: 32px;
+  }
+}
+
+/* =========================
+  Footer
+========================= */
+
+.footer {
+  background-color: #f9f9f9;
+  margin-top: 160px;
+}
+
+.footer__inner {
+  padding: 80px 0 20px 0;
+}
+
+.footer__nav {
+  padding-bottom: 180px;
+}
+
+.footer__nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__nav-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+
+.footer__nav-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.5px;
+  height: 40px;
+  background-color: var(--black);
+  transform: translateY(-50%);
+}
+
+.footer__nav-item a {
+  font-size: var(--fz18);
+  font-family: var(--font-en);
+  transition: opacity 0.3s;
+}
+
+.footer__nav-item a:hover {
+  opacity: 0.6;
+}
+
+.footer__sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__sns a {
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.footer__sns a:hover {
+  opacity: 0.7;
+  transform: translateY(-5px);
+}
+
+.footer__sns img {
+  max-width: 42px;
+  display: block;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #dcdcdc;
+}
+
+.footer__copyright {
+  font-size: var(--fz18);
+  font-family: var(--font-en);
+}
+
+.footer__privacy {
+  font-size: var(--fz18);
+  font-family: var(--font-en);
+  transition: opacity 0.3s;
+}
+
+.footer__privacy:hover {
+  opacity: 0.6;
+}
+
+@media only screen and (max-width: 767px) {
+  .footer {
+    margin-top: 30px;
+  }
+
+  .footer__inner {
+    padding: 40px 0 20px 0;
+  }
+
+  .footer__nav {
+    padding-bottom: 40px;
+  }
+
+  .footer__nav-list {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer__nav-item {
+    width: 100%;
+  }
+
+  .footer__nav-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .footer__sns img {
+    width: 28px;
+    height: auto;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 1rem;
+  }
+  .footer__copyright {
+    font-size: 12px;
+  }
+
+  .footer__privacy {
+    font-size: 12px;
   }
 }
